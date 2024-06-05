@@ -19,7 +19,7 @@
   - @ohos/axios@2.2.0 
 
 - **列表刷新加载更多** [链接](https://ohpm.openharmony.cn/#/cn/detail/@ohos%2Fpulltorefresh)
-  - @ohos/pulltorefresh（2.0.5版本代码。手动修复修复刷新，增加主动触发刷新功能） 
+  - @ohos/pulltorefresh（[2.0.5版本代码](https://github.com/RedRackham-R/WanAndroidHarmoney/tree/main/entry/src/main/ets/ui/weight/pullToRefresh)。手动修复修复刷新，增加主动触发刷新功能） 
 
 
 ## 功能模块
