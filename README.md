@@ -1,4 +1,6 @@
-<img width="222" alt="446532d579c5ab00e0bb92abd7c667f" src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/2271183e-a0ab-412b-897d-d2067f761748"><img width="222" alt="446532d579c5ab00e0bb92abd7c667f" src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/2271183e-a0ab-412b-897d-d2067f761748"># WanAndroidHarmoney
+<img width="105" alt="ic_app_logo" src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/bb255b7e-ce9f-40e9-8c7b-f85b0f7efc32">
+
+# WanAndroidHarmoney
 
 使用 ArkTS API9 实现的鸿蒙玩安卓客户端
 
@@ -95,10 +97,12 @@
 ### 深色模式
 
 <img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/47146ea9-5af2-4dc1-bbba-ec8313419cb4" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp;
-<img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/5640bdba-278b-4d46-b945-fa64f03a339e" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp; 
-<img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/46dd32b8-2de6-45a3-9fef-dda04237bcd5" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp; 
 <img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/17711fc3-3c8d-40d1-871b-642b1d7c21f3" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/26d8c9a2-6479-4231-8e80-c6c2ae82fa60" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/5640bdba-278b-4d46-b945-fa64f03a339e" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp; 
+<img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/46dd32b8-2de6-45a3-9fef-dda04237bcd5" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp; 
+<img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/a900764b-aaf2-463f-b798-5cf0c5e48ad4" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp; 
+<img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/8e569e23-f584-4c15-b7c7-702f629c9dc4" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp; 
 <img src="https://github.com/RedRackham-R/WanAndroidHarmoney/assets/22745782/e6001761-c1b0-411c-94ac-10da27e8e5a8" width="200"/> &nbsp;&nbsp;&nbsp;&nbsp;
 
 
