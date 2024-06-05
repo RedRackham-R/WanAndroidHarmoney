@@ -1,0 +1,16 @@
+{
+  "src": [
+    "ui/pages/main/MainPage",
+    "ui/pages/login/LoginPage",
+    "ui/pages/splash/SplashPage",
+    "ui/pages/coin/CoinPage",
+    "ui/pages/rank/RankPage",
+    "ui/pages/search/SearchPage",
+    "ui/pages/collect/CollectPage",
+    "ui/pages/share/ShareListPage",
+    "ui/pages/share/ShareArticlePage",
+    "ui/pages/setting/SettingPage",
+    "ui/pages/avatar/AvatarPage",
+    "ui/pages/web/WebPage"
+  ]
+}

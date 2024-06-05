@@ -1,0 +1,15 @@
+{
+  "name": "wanandroidharmoney",
+  "version": "1.0.0",
+  "description": "Please describe the basic information.",
+  "main": "",
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "@ohos/axios": "^2.2.0",
+    "@ohos/banner": "^1.0.1-rc.0"
+  },
+  "devDependencies": {
+    "@ohos/hypium": "1.0.6"
+  }
+}
