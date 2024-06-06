@@ -223,7 +223,7 @@ export struct SettingPage {
         })
         OptionItemLayout({
           desc: '声明',
-          subDesc: '本软件存寻GPLv3通用公共许可协议',
+          subDesc: '本软件遵循GPLv3通用公共许可协议',
           itemRightLayout: this.imageRightLayout.bind(this, ($r('app.media.pic_gplv3'))),
           theme: this.theme,
           onItemClick: () => {
