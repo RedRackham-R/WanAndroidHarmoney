@@ -88,7 +88,13 @@ export class WanHttpClient extends BaseAxiosDelegate {
     return this.getRequest("/article/list/" + index + "/json")
   }
 
-
+  /**
+   * 登录 TODO 目前Axios框架有bug无法从header获取多个set-cookie，所以改用原生的请求实现
+   * @param username
+   * @param password
+   * @param success
+   * @param failure
+   */
   public async login(username: string, password: string): Promise<LoginRegistResult> {
     // 每一个httpRequest对应一个HTTP请求任务，不可复用
     let httpRequest = http.createHttp()
@@ -132,7 +138,15 @@ export class WanHttpClient extends BaseAxiosDelegate {
     }
   }
 
-
+  /**
+   * 注册 TODO 目前Axios框架有bug无法从header获取多个set-cookie，所以改用原生的请求实现
+   * https://www.wanandroid.com/user/register
+   * @param username
+   * @param password
+   * @param repassword
+   * @param success
+   * @param failure
+   */
   public async regist(username: string, password: string, repassword: string,): Promise<LoginRegistResult> {
     // 每一个httpRequest对应一个HTTP请求任务，不可复用
     let httpRequest = http.createHttp()
@@ -174,106 +188,6 @@ export class WanHttpClient extends BaseAxiosDelegate {
     } finally {
       httpRequest.destroy()
     }
-  }
-
-  /**
-   * 登录 TODO 目前Axios框架有bug无法从header获取多个set-cookie，所以改用原生的请求实现
-   * @param username
-   * @param password
-   * @param success
-   * @param failure
-   */
-
-  public _login(username: string, password: string, success: (response: IWanCommonResponse<ILoginRegist>, cookies: string[]) => void, failure: (err) => void) {
-    // 每一个httpRequest对应一个HTTP请求任务，不可复用
-    let httpRequest = http.createHttp()
-
-    httpRequest.request(// 填写HTTP请求的URL地址，可以带参数也可以不带参数。URL地址需要开发者自定义。请求的参数可以在extraData中指定
-      WanHttpClient.BASE_URL + "/user/login?username=" + username + "&password=" + password,
-      {
-        method: http.RequestMethod.POST, // 可选，默认为http.RequestMethod.GET
-        expectDataType: http.HttpDataType.STRING, // 可选，指定返回数据的类型
-        usingCache: false, // 可选，默认为true
-        priority: 1, // 可选，默认为1
-        connectTimeout: WanHttpClient.TIME_OUT, // 可选，默认为60000ms
-        readTimeout: WanHttpClient.TIME_OUT, // 可选，默认为60000ms
-      }, (err, data) => {
-      if (!err) {
-
-        // 当该请求使用完毕时，调用destroy方法主动销毁
-        httpRequest.destroy()
-        let wanpesponse: IWanCommonResponse<ILoginRegist> = JSON.parse(data.result as string)
-        let rawCookieString = data.cookies
-        let cookies = rawCookieString.split("\r\n").map(cookieStr => {
-          const parts = cookieStr.split("\t")
-          // 格式化为: "CookieName=CookieValue Domain=DomainValue Expires=..."
-          const domain = parts[0].replace("#HttpOnly_", "")
-          const secure = parts[3] === 'TRUE' ? 'Secure ' : ''
-          const httpOnly = parts[0].startsWith("#HttpOnly_") ? 'HttpOnly ' : ''
-          const expiration = `Expires=${new Date(parseInt(parts[4]) * 1000).toUTCString()} `
-          const path = `Path=${parts[2]} `
-          // 注意: Expires部分可能需要根据实际情况调整
-          return `${parts[5]}=${parts[6]} ${path}${secure}${httpOnly}${expiration}Domain=${domain}`
-        })
-
-        success(wanpesponse, cookies)
-      } else {
-        // 当该请求使用完毕时，调用destroy方法主动销毁。
-        httpRequest.destroy()
-        failure(err)
-      }
-    })
-  }
-
-
-  /**
-   * 注册 TODO 目前Axios框架有bug无法从header获取多个set-cookie，所以改用原生的请求实现
-   * https://www.wanandroid.com/user/register
-   * @param username
-   * @param password
-   * @param repassword
-   * @param success
-   * @param failure
-   */
-  public _regist(username: string, password: string, repassword: string, success: (response: IWanCommonResponse<ILoginRegist>, cookies: string[]) => void, failure: (err) => void) {
-
-    // 每一个httpRequest对应一个HTTP请求任务，不可复用
-    let httpRequest = http.createHttp()
-
-    httpRequest.request(// 填写HTTP请求的URL地址，可以带参数也可以不带参数。URL地址需要开发者自定义。请求的参数可以在extraData中指定
-      WanHttpClient.BASE_URL + "/user/register?username=" + username + "&password=" + password + "&repassword=" + repassword,
-      {
-        method: http.RequestMethod.POST, // 可选，默认为http.RequestMethod.GET
-        expectDataType: http.HttpDataType.STRING, // 可选，指定返回数据的类型
-        usingCache: false, // 可选，默认为true
-        priority: 1, // 可选，默认为1
-        connectTimeout: WanHttpClient.TIME_OUT, // 可选，默认为60000ms
-        readTimeout: WanHttpClient.TIME_OUT, // 可选，默认为60000ms
-      }, (err, data) => {
-      if (!err) {
-        // 当该请求使用完毕时，调用destroy方法主动销毁
-        httpRequest.destroy()
-        let wanpesponse: IWanCommonResponse<ILoginRegist> = JSON.parse(data.result as string)
-        //处理cookie
-        let rawCookieString = data.cookies
-        let cookies = rawCookieString.split("\r\n").map(cookieStr => {
-          const parts = cookieStr.split("\t")
-          // 格式化为: "CookieName=CookieValue Domain=DomainValue Expires=..."
-          const domain = parts[0].replace("#HttpOnly_", "")
-          const secure = parts[3] === 'TRUE' ? 'Secure ' : ''
-          const httpOnly = parts[0].startsWith("#HttpOnly_") ? 'HttpOnly ' : ''
-          const expiration = `Expires=${new Date(parseInt(parts[4]) * 1000).toUTCString()} `
-          const path = `Path=${parts[2]} `
-          // 注意: Expires部分可能需要根据实际情况调整
-          return `${parts[5]}=${parts[6]} ${path}${secure}${httpOnly}${expiration}Domain=${domain}`
-        })
-        success(wanpesponse, cookies)
-      } else {
-        // 当该请求使用完毕时，调用destroy方法主动销毁。
-        httpRequest.destroy()
-        failure(err)
-      }
-    })
   }
 
 
